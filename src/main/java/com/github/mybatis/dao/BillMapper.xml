@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- namespace:命名空间   -->
+<mapper namespace="com.github.mybatis.dao.BillMapper">
+    <!--int findBillCount();-->
+    <select id="findBillCount" resultType="int">
+        select count(1) from smbms_bill
+    </select>
+    <!--List<Bill> queryPageBean(PageBean<Bill> pageBean);-->
+    <select id="queryPageBean" resultType="bill">
+        select  * from smbms_bill  limit #{currentPage},#{pageSize}
+    </select>
+
+</mapper>
